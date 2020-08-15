@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Items from "./components/Items";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    items: [
+      {
+        id: 1,
+        title: "Kale",
+        purchased: false,
+      },
+      {
+        id: 2,
+        title: "Olives",
+        purchased: false,
+      },
+      {
+        id: 3,
+        title: "Grapefruit",
+        purchased: false,
+      },
+      {
+        id: 4,
+        title: "Coriander",
+        purchased: false,
+      },
+    ],
+  };
+
+  // (Toggle)
+  markPurchased = (id) => {
+    this.setState({
+      items: this.state.items.map((item) => {
+        if (item.id === id) {
+          item.purchased = !item.purchased;
+        }
+        return item;
+      }),
+    });
+  };
+
+  render() {
+    console.log(this.state.items);
+    return (
+      <>
+        <div className="App">
+          <header className="header">
+            <p>Groceries List</p>
+          </header>
+        </div>
+        <div className="item-list">
+          <Items items={this.state.items} markPurchased={this.markPurchased} />
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;
