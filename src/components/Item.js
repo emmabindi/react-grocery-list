@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
 
 class Item extends Component {
   getStyle = () => {
@@ -14,9 +13,9 @@ class Item extends Component {
       <div style={this.getStyle()}>
         <input
           type="checkbox"
+          className="checkbox"
           onChange={this.props.markPurchased.bind(this, id)}
         />
-        {/* {this.props.item.title} */}
         {title}
         <button
           className="delete-button"
@@ -28,9 +27,5 @@ class Item extends Component {
     );
   }
 }
-
-// Item.propTypes = {
-//   item: PropTypes.object.isRequired,
-// };
 
 export default Item;

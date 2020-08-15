@@ -1,6 +1,5 @@
 import React from "react";
 import Item from "./Item";
-// import PropTypes from "prop-types";
 
 class Items extends React.Component {
   render() {
@@ -11,14 +10,12 @@ class Items extends React.Component {
           item={item}
           markPurchased={this.props.markPurchased}
           removeItem={this.props.removeItem}
+          // unsure
+          addItem={this.props.addItem}
         />
       </div>
     ));
   }
 }
-
-// Items.propTypes = {
-//   items: PropTypes.array.isRequired,
-// };
 
 export default Items;
