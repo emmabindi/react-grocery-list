@@ -5,33 +5,41 @@ import Header from "./components/Header";
 import About from "./components/pages/About";
 import "./App.css";
 import { v4 as uuid } from "uuid";
+import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
   state = {
-    items: [
-      {
-        id: uuid(),
-        title: "Kale",
-        purchased: false,
-      },
-      {
-        id: uuid(),
-        title: "Olives",
-        purchased: false,
-      },
-      {
-        id: uuid(),
-        title: "Grapefruit",
-        purchased: false,
-      },
-      {
-        id: uuid(),
-        title: "Coriander",
-        purchased: false,
-      },
-    ],
+    items: [],
+    // items: [
+    //   {
+    //     id: uuid(),
+    //     title: "Kale",
+    //     purchased: false,
+    //   },
+    //   {
+    //     id: uuid(),
+    //     title: "Olives",
+    //     purchased: false,
+    //   },
+    //   {
+    //     id: uuid(),
+    //     title: "Grapefruit",
+    //     purchased: false,
+    //   },
+    //   {
+    //     id: uuid(),
+    //     title: "Coriander",
+    //     purchased: false,
+    //   },
+    // ],
   };
+
+  componentDidMount() {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then((res) => this.setState({ items: res.data }));
+  }
 
   // (Toggle)
   markPurchased = (id) => {
