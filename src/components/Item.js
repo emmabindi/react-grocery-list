@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 class Item extends Component {
   getStyle = () => {
@@ -18,13 +18,19 @@ class Item extends Component {
         />
         {/* {this.props.item.title} */}
         {title}
+        <button
+          className="delete-button"
+          onClick={this.props.removeItem.bind(this, id)}
+        >
+          🗑
+        </button>
       </div>
     );
   }
 }
 
-Item.propTypes = {
-  item: PropTypes.object.isRequired,
-};
+// Item.propTypes = {
+//   item: PropTypes.object.isRequired,
+// };
 
 export default Item;

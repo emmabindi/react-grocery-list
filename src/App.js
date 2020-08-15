@@ -40,6 +40,13 @@ class App extends React.Component {
     });
   };
 
+  removeItem = (id) => {
+    this.setState({
+      items: [...this.state.items.filter((item) => item.id !== id)],
+    });
+    console.log(id);
+  };
+
   render() {
     console.log(this.state.items);
     return (
@@ -50,7 +57,11 @@ class App extends React.Component {
           </header>
         </div>
         <div className="item-list">
-          <Items items={this.state.items} markPurchased={this.markPurchased} />
+          <Items
+            items={this.state.items}
+            markPurchased={this.markPurchased}
+            removeItem={this.removeItem}
+          />
         </div>
       </>
     );

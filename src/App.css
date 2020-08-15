@@ -19,3 +19,9 @@
   border-bottom: 1px #ccc dotted;
   height: 100%;
 }
+
+.delete-button {
+  float: right;
+  border: none;
+  background-color: transparent;
+}
